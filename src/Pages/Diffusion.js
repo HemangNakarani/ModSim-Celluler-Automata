@@ -54,8 +54,6 @@ var count = 0;
 
 var gdata = [];
 
-var flagStop = false;
-
 const marks = [
   {
     value: 0,
@@ -269,7 +267,7 @@ function Diffusion() {
 
           return 0;
         });
-        
+
       });
     });
 
