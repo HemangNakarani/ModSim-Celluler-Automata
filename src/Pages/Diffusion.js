@@ -269,16 +269,7 @@ function Diffusion() {
 
           return 0;
         });
-
-        if (
-          Math.abs(g[5][15] - gridCopy[5][15]) < 0.00001 &&
-          Math.abs(g[5][15] - gridCopy[5][15]) !== 0 &&
-          flagStop === false
-        ) {
-          alert("STOP ITERTIONS: REACHED ERROR < 0.00001");
-          flagStop = true;
-          return;
-        }
+        
       });
     });
 
