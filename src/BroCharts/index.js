@@ -18,7 +18,7 @@ export default function App() {
   const {graphdata} = useRootContext(); 
 
   return (
-    <div>
+    <div style={{margin:"240px"}}>
       {/* {JSON.stringify({ activeSeriesIndex, activeDatumIndex }, null, 2)} */}
       <MyChart
         data={graphdata}

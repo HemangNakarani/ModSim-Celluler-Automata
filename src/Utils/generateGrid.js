@@ -1,20 +1,13 @@
-const generateAnsorbingGrid = (numRows, numCols, initTemp, boundTemp, hot, cold, amb) => {
+const generateAnsorbingGrid = (numRows, numCols, initTemp, boundTemp, celltemp) => {
   const rows = [];
 
   for (let i = 0; i < numRows; i++) {
     rows.push(Array.from(Array(numCols), () => initTemp));
   }
 
-  hot.forEach(([xx,yy])=>{
-    rows[xx][yy] = 0;
-  });
-
-  cold.forEach(([xx,yy])=>{
-      rows[xx][yy] = 1;
-  });
-
-  amb.forEach(([xx,yy])=>{
-      rows[xx][yy] = 0.5;
+  celltemp.map((pp)=>{
+    rows[pp[0]][pp[1]] = pp[2];
+    return 1;
   });
 
   const ro = [0, numRows - 1];
@@ -35,23 +28,16 @@ const generateAnsorbingGrid = (numRows, numCols, initTemp, boundTemp, hot, cold,
   return rows;
 };
 
-const generateReflectiveGrid = (numRows, numCols, initTemp, boundTemp, hot, cold, amb) => {
+const generateReflectiveGrid = (numRows, numCols, initTemp, boundTemp,celltemp) => {
   const rows = [];
 
   for (let i = 0; i < numRows; i++) {
     rows.push(Array.from(Array(numCols), () => initTemp));
   }
 
-  hot.forEach(([xx,yy])=>{
-    rows[xx][yy] = 0;
-  });
-
-  cold.forEach(([xx,yy])=>{
-      rows[xx][yy] = 1;
-  });
-
-  amb.forEach(([xx,yy])=>{
-      rows[xx][yy] = 0.5;
+  celltemp.map((pp)=>{
+    rows[pp[0]][pp[1]] = pp[2];
+    return 1;
   });
 
   const ro = [0, numRows - 1];
@@ -87,23 +73,16 @@ const generateReflectiveGrid = (numRows, numCols, initTemp, boundTemp, hot, cold
   return rows;
 };
 
-const generatePeriodicGrid = (numRows, numCols, initTemp, boundTemp, hot, cold, amb) => {
+const generatePeriodicGrid = (numRows, numCols, initTemp, boundTemp, celltemp) => {
   const rows = [];
 
   for (let i = 0; i < numRows; i++) {
     rows.push(Array.from(Array(numCols), () => initTemp));
   }
 
-  hot.forEach(([xx,yy])=>{
-    rows[xx][yy] = 0;
-  });
-
-  cold.forEach(([xx,yy])=>{
-      rows[xx][yy] = 1;
-  });
-
-  amb.forEach(([xx,yy])=>{
-      rows[xx][yy] = 0.5;
+  celltemp.map((pp)=>{
+    rows[pp[0]][pp[1]] = pp[2];
+    return 1;
   });
 
   const ro = [0, numRows - 1];
