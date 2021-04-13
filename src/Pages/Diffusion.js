@@ -54,6 +54,8 @@ var count = 0;
 
 var gdata = [];
 
+var flagStop=false;
+
 const marks = [
   {
     value: 0,
@@ -218,6 +220,14 @@ function Diffusion() {
 
           return 0;
         });
+
+        if( Math.abs(g[5][15]-gridCopy[5][15]) < 0.00001 &&  Math.abs(g[5][15]-gridCopy[5][15])!==0 && flagStop===false)
+        {
+            alert("STOP ITERTIONS: REACHED ERROR < 0.00001")
+            flagStop=true;
+            return;
+        }
+
       });
     });
 
