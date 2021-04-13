@@ -218,8 +218,6 @@ function Diffusion() {
 
           return 0;
         });
-
-        console.log(gridCopy[5][15]);
       });
     });
 
