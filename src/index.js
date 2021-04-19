@@ -3,12 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { RootContextProvider } from "./Context/RootState";
-
 ReactDOM.render(
-  <RootContextProvider>
-    <App />
-  </RootContextProvider>,
+      <App />,
   document.getElementById("root")
 );
 
