@@ -195,7 +195,7 @@ function ForestFire(props) {
     timestep,
     twostepstoburn,
     neighbours,
-    nghProb
+    nghProb,
   ]);
 
   return (
@@ -284,8 +284,12 @@ function ForestFire(props) {
                       <TextField
                         value={nghProb[1]}
                         type="number"
+                        step="any"
                         onChange={(e) => {
-                          setnghProb({ ...nghProb, 1: parseInt(e.target.value) });
+                          setnghProb({
+                            ...nghProb,
+                            1: parseFloat(e.target.value),
+                          });
                         }}
                         label="1"
                         variant="outlined"
@@ -296,8 +300,12 @@ function ForestFire(props) {
                       <TextField
                         value={nghProb[2]}
                         type="number"
+                        step="any"
                         onChange={(e) => {
-                          setnghProb({ ...nghProb, 2: parseInt(e.target.value) });
+                          setnghProb({
+                            ...nghProb,
+                            2: parseFloat(e.target.value),
+                          });
                         }}
                         label="2"
                         variant="outlined"
@@ -308,8 +316,12 @@ function ForestFire(props) {
                       <TextField
                         value={nghProb[3]}
                         type="number"
+                        step="any"
                         onChange={(e) => {
-                          setnghProb({ ...nghProb, 3: parseInt(e.target.value) });
+                          setnghProb({
+                            ...nghProb,
+                            3: parseFloat(e.target.value),
+                          });
                         }}
                         label="3"
                         variant="outlined"
@@ -320,8 +332,12 @@ function ForestFire(props) {
                       <TextField
                         value={nghProb[4]}
                         type="number"
+                        step="any"
                         onChange={(e) => {
-                          setnghProb({ ...nghProb, 4: parseInt(e.target.value) });
+                          setnghProb({
+                            ...nghProb,
+                            4: parseFloat(e.target.value),
+                          });
                         }}
                         label="4"
                         variant="outlined"
