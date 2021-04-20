@@ -67,6 +67,13 @@ function ForestFire(props) {
   const [running, setRunning] = useState(false);
   const [count, setCount] = useState(0);
   const [graphdata, setGraphData] = useState([]);
+  const [nghProb, setnghProb] = useState({
+    0: 0,
+    1: 0.88888889,
+    2: 0.94117647,
+    3: 0.96,
+    4: 0.96969697,
+  });
 
   const [grid, setGrid] = useState(() => {
     return initForest(numRows, numCols, probTree, probBurning);
@@ -158,7 +165,8 @@ function ForestFire(props) {
               probImmune,
               probLightning,
               twostepstoburn,
-              neighbours
+              neighbours,
+              nghProb
             );
 
             if (gridCopy[x][y] === 1) {
@@ -187,6 +195,7 @@ function ForestFire(props) {
     timestep,
     twostepstoburn,
     neighbours,
+    nghProb
   ]);
 
   return (
@@ -265,6 +274,63 @@ function ForestFire(props) {
                   />
                 </Box>
               </Box>
+              {neighbours ? (
+                <div>
+                  <Typography>
+                    Probabilities on ___ neighbours on Fire
+                  </Typography>
+                  <Box display="flex" justifyContent="center">
+                    <Box m={1}>
+                      <TextField
+                        value={nghProb[1]}
+                        type="number"
+                        onChange={(e) => {
+                          setnghProb({ ...nghProb, 1: parseInt(e.target.value) });
+                        }}
+                        label="1"
+                        variant="outlined"
+                        size="small"
+                      />
+                    </Box>
+                    <Box m={1}>
+                      <TextField
+                        value={nghProb[2]}
+                        type="number"
+                        onChange={(e) => {
+                          setnghProb({ ...nghProb, 2: parseInt(e.target.value) });
+                        }}
+                        label="2"
+                        variant="outlined"
+                        size="small"
+                      />
+                    </Box>
+                    <Box m={1}>
+                      <TextField
+                        value={nghProb[3]}
+                        type="number"
+                        onChange={(e) => {
+                          setnghProb({ ...nghProb, 3: parseInt(e.target.value) });
+                        }}
+                        label="3"
+                        variant="outlined"
+                        size="small"
+                      />
+                    </Box>
+                    <Box m={1}>
+                      <TextField
+                        value={nghProb[4]}
+                        type="number"
+                        onChange={(e) => {
+                          setnghProb({ ...nghProb, 4: parseInt(e.target.value) });
+                        }}
+                        label="4"
+                        variant="outlined"
+                        size="small"
+                      />
+                    </Box>
+                  </Box>
+                </div>
+              ) : null}
             </div>
           </Card>
         </Grid>

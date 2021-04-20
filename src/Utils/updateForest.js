@@ -15,8 +15,9 @@ const updateSite = (
   probLightning,
   twostepstoburn,
   neighbours = true,
-  probFire = [0, 0.88888889, 0.94117647, 0.96, 0.96969697]
+  probFire = {0:0, 1:0.88888889, 2:0.94117647,3: 0.96, 4:0.96969697}
 ) => {
+
   var pl = getRandomInt();
   if (pl < probLightning * max) {
     if (value === 1) {
@@ -46,7 +47,7 @@ const updateSite = (
 
       var bunP = getRandomInt();
 
-      if (bunP < probFire[cnt] * max) {
+      if (bunP < (probFire[cnt]*(1-probImmune)* max)) {
         return 2;
       } else {
         return 1;
